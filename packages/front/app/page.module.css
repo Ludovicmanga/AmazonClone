@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logoContainer {
+  margin: 1rem;
+}

@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    background: #232f3e;
+    padding: 1rem;
+    color: white;
+    font-weight: bold;
+}
+
+.leftMenuBtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 1rem 0 0;
+}
+
+.leftMenuBtnText {
+    margin: 0 0 0 0.5rem;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.menuIcon {
+    font-size: 1.5rem;
+}

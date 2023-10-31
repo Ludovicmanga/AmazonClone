@@ -1,0 +1,17 @@
+.helloMessage {
+    background: #232f3e;
+    height: 10%;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section {
+    margin: 1rem 0;
+}
+
+.bottom {
+    padding: 1rem;
+}
