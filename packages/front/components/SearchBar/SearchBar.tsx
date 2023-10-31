@@ -35,12 +35,12 @@ const SearchBar = (props: Props) => {
         </Select>
       </FormControl>
       <InputBase
-        sx={{ ml: 1, flex: 1 }}
-        placeholder="Search Google Maps"
-        inputProps={{ "aria-label": "search google maps" }}
+        sx={{ ml: 2, flex: 1 }}
+        placeholder="Chercher sur Amazon..."
+        inputProps={{ "aria-label": "chercher sur Amazon" }}
       />
       <div className={styles.searchIconContainer}>
-        <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+        <IconButton type="button" aria-label="search">
           <SearchIcon />
         </IconButton>
       </div>
