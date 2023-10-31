@@ -1,6 +1,16 @@
 .container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background: #131921;
-    padding: 1rem;
+    padding: 1rem 2rem;
+    color: white;
+}
+
+.searchBarContainer {
+    width: 45%;
+}
+
+.clickableBtn {
+    cursor: pointer;
 }
