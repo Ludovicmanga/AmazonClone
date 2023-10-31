@@ -14,3 +14,23 @@
 .clickableBtn {
     cursor: pointer;
 }
+
+.cart {
+    display: flex;
+    align-items: center;
+}
+
+.cartIconAndNumber {
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cartIcon {
+    font-size: 1.5rem
+}
+
+.cartText {
+    margin: 0 0 0 0.5rem;
+}

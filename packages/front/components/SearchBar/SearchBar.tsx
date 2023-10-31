@@ -2,14 +2,14 @@
 
 import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
-import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import styles from "./SearchBar.module.css";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 
 type Props = {};
 
@@ -34,10 +34,21 @@ const SearchBar = (props: Props) => {
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>
-      <InputBase
-        sx={{ ml: 2, flex: 1 }}
-        placeholder="Chercher sur Amazon..."
-        inputProps={{ "aria-label": "chercher sur Amazon" }}
+      <Autocomplete
+      fullWidth
+        freeSolo
+        id="free-solo-2-demo"
+        disableClearable
+        options={['Produit A', 'Produit B']}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            InputProps={{
+              ...params.InputProps,
+              type: 'search',
+            }}
+          />
+        )}
       />
       <div className={styles.searchIconContainer}>
         <IconButton type="button" aria-label="search">

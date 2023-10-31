@@ -6,8 +6,6 @@ import NavBelt from '../components/NavBelt/NavBelt'
 export default function Home() {
   return (
     <div>
-      <GlobalNavBar />
       Reste de page d'accueil...
-      <GlobalFooter />
     </div>
   )}
