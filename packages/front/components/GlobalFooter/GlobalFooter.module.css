@@ -1,0 +1,20 @@
+.container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10rem;
+}
+
+.returnTopBtn {
+
+}
+
+.top {
+    background: #0F1111;
+    height: 70%;
+}
+
+.bottom {
+    background: #131A22;
+    height: 30%;
+}
