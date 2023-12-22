@@ -14,8 +14,8 @@ const CategoryNavBar = (props: Props) => {
           <h2 className={styles.sectionTitle}>Tendances</h2>
           <div>Meilleures ventes</div>
         </div>
-        <h2 className={styles.sectionTitle}>Contenu numérique rt Appareils</h2>
         <h2 className={styles.sectionTitle}>Choisir une catégorie</h2>
+        <h2 className={styles.sectionTitle}>Aide Et Paramètres</h2>
       </div>
     </>
   );
