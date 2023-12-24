@@ -1,9 +1,14 @@
 import React from "react";
 import styles from "./CategoryNavBar.module.css";
+import { AxiosInst } from "../../singletons/axiosInstance";
 
 type Props = {};
 
 const CategoryNavBar = (props: Props) => {
+  const getCategories = async () => {
+    //await AxiosInst.getInst().get('/');
+  };
+
   return (
     <>
       <div className={styles.helloMessage}>
