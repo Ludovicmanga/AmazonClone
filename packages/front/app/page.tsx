@@ -10,6 +10,7 @@ export default function Home() {
     const response = await axios.get<Product[]>(
       "http://localhost:5000/product"
     );
+    console.log(response, " is the products response");
     setAllProducts(response.data);
   };
 
