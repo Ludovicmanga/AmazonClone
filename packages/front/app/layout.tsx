@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import GlobalNavBar from "../components/GlobalNavBar/GlobalNavBar";
 import GlobalFooter from "../components/GlobalFooter/GlobalFooter";
+import ReduxWrapper from "../components/ReduxWrapper/ReduxWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <GlobalNavBar />
-        {children}
-        <GlobalFooter />
+        <ReduxWrapper>
+          <GlobalNavBar />
+          {children}
+          <GlobalFooter />
+        </ReduxWrapper>
       </body>
     </html>
   );

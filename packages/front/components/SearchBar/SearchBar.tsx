@@ -7,26 +7,24 @@ import SearchIcon from "@mui/icons-material/Search";
 import styles from "./SearchBar.module.css";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { getAllMainCategories } from "../../app/helpers/mainCategories.helper";
+import { useAppSelector } from "../../redux/hooks";
 
 type Props = {};
 
 const SearchBar = (props: Props) => {
-  const [category, setCategory] = useState("all");
-  const [allCategories, setAllCategories] = useState([]);
+  const [category, setCategory] = useState<{ id: number; name: string }>({
+    id: 0,
+    name: "all",
+  });
 
-  const handlegetAllMainCategories = async () => {
-    const response = await getAllMainCategories();
-    console.log(response, " is the response");
-    setAllCategories(response.map((cat) => cat.name));
-  };
-
+  const allCategories = useAppSelector((state) => state.mainCategories);
   useEffect(() => {
-    handlegetAllMainCategories();
-  }, []);
+    console.log(allCategories, " are all the categories");
+  }, [allCategories]);
 
   return (
     <Paper
@@ -35,15 +33,20 @@ const SearchBar = (props: Props) => {
     >
       <FormControl className={styles.categorySelectContainer}>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          value={category?.id}
+          onChange={(e) =>
+            setCategory(
+              allCategories.find((cat) => cat.id === e.target.value) || {
+                id: 0,
+                name: "all",
+              }
+            )
+          }
         >
-          <MenuItem value={"all"}>Toutes nos catégories</MenuItem>
+          <MenuItem value={0}>Toutes nos catégories</MenuItem>
           {allCategories.map((category) => (
-            <MenuItem key={category} value={category}>
-              {category}
+            <MenuItem key={category.id} value={category.id}>
+              {category.name}
             </MenuItem>
           ))}
         </Select>

@@ -3,25 +3,30 @@
 import axios from "axios";
 import { AxiosInst } from "../singletons/axiosInstance";
 import { useEffect, useState } from "react";
+import { getAllMainCategories } from "./helpers/mainCategories.helper";
+import { useAppDispatch } from "../redux/hooks";
+import { setMainCategories } from "../redux/mainCategories.slice";
+import { Product } from "../types/types";
 
 export default function Home() {
-  const getAllProducts = async () => {
-    //const response = await AxiosInst.getInst().get("/product");
+  const dispatch = useAppDispatch();
+  const handleGetAllProducts = async () => {
     const response = await axios.get<Product[]>(
       "http://localhost:5000/product"
     );
-    console.log(response, " is the products response");
     setAllProducts(response.data);
   };
 
-  type Product = {
-    name: string;
+  const handleGetAllMainCategories = async () => {
+    const response = await getAllMainCategories();
+    dispatch(setMainCategories(response as string[]));
   };
 
   const [allProducts, setAllProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    getAllProducts();
+    handleGetAllMainCategories();
+    handleGetAllProducts();
   }, []);
 
   return (
