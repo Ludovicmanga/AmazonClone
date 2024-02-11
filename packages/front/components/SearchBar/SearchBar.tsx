@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
@@ -10,7 +10,6 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import { getAllMainCategories } from "../../app/helpers/mainCategories.helper";
 import { useAppSelector } from "../../redux/hooks";
 
 type Props = {};
@@ -22,9 +21,7 @@ const SearchBar = (props: Props) => {
   });
 
   const allCategories = useAppSelector((state) => state.mainCategories);
-  useEffect(() => {
-    console.log(allCategories, " are all the categories");
-  }, [allCategories]);
+  const allProducts: string[] = [];
 
   return (
     <Paper
@@ -54,9 +51,8 @@ const SearchBar = (props: Props) => {
       <Autocomplete
         fullWidth
         freeSolo
-        id="free-solo-2-demo"
         disableClearable
-        options={allCategories}
+        options={allProducts}
         renderInput={(params) => (
           <TextField
             {...params}
